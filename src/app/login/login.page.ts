@@ -22,11 +22,18 @@ export class LoginPage implements OnInit {
     ],
     senha: [
       {tipo: 'requerid', aviso: 'Quer entrar como?'}, 
-      {tipo: 'minLength', aviso: 'Mais um pouco...'}
+      {tipo: 'minlength', aviso: 'Mais um pouco...'}
     ],
   };
 
   constructor(private formBuilder: FormBuilder) { }
+  
+  get email(){
+    return this.loginForm.get('email');
+  }
+  get senha(){
+    return this.loginForm.get('senha');
+  }
 
   ngOnInit() {}
 }

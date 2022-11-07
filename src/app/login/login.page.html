@@ -9,10 +9,15 @@
   <ion-card>
 
    <form [formGroup]="loginForm">
-    <ion-item>
+    <ion-item style="flex-direction: column">
       <ion-label>E-mail</ion-label>
-      <ion-input type="email" formControlName="email"></ion-input>
+      <ion-input type="email" id="email" formControlName="email"></ion-input>
     </ion-item>
+    <ng-container *ngFor="let erro of mensagensErro.email">
+      <span class="msg-erro" *ngIf="email.errors?.[erro.tipo] && (email.dirty || email.touched)">
+        {{erro.aviso}}
+      </span>
+    </ng-container>
     <ion-item>
       <ion-label>Senha</ion-label>
       <ion-input type="password" formControlName="senha"></ion-input>
