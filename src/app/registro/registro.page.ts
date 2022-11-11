@@ -7,7 +7,8 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
-  registroForm = this.formBuilder.group({
+  pessoa = {};
+  registroForm = this.bd.group({
     nome: ['', Validators.compose([Validators.required, Validators.email, Validators.minLength(3)])],
     email: ['', Validators.compose([Validators.required, Validators.email,])],
     cpf: ['', Validators.compose([Validators.required, Validators.email, Validators.minLength(11), Validators.maxLength(11)])],
@@ -34,14 +35,24 @@ export class RegistroPage implements OnInit {
     ],
   };
 
-  constructor(private formBuilder: FormBuilder) { }
-  
+  constructor(private bd: StorageService) {}  
+
+  get nome(){
+    return this.registroForm.get('nome');
+  }
   get email(){
     return this.registroForm.get('email');
+  }
+  get cpf(){
+    return this.registroForm.get('cpf');
   }
   get senha(){
     return this.registroForm.get('senha');
   }
 
   ngOnInit() {}
+
+  async salvar(){
+    this.bd.set('email', this.pessoa);
+  }
 }
