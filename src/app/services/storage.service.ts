@@ -6,6 +6,9 @@ import { Storage } from '@ionic/storage-angular';
   providedIn: 'root'
 })
 export class StorageService {
+  group(arg0: { nome: (string | import("@angular/forms").ValidatorFn)[]; email: (string | import("@angular/forms").ValidatorFn)[]; cpf: (string | import("@angular/forms").ValidatorFn)[]; senha: (string | import("@angular/forms").ValidatorFn)[]; confirma: (string | import("@angular/forms").ValidatorFn)[]; }) {
+    throw new Error('Method not implemented.');
+  }
   // criar storage 
   private _storage: Storage | null = null;
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-registro',
@@ -38,16 +39,16 @@ export class RegistroPage implements OnInit {
   constructor(private bd: StorageService) {}  
 
   get nome(){
-    return this.registroForm.get('nome');
+    return this.registroForm.get('nome')
   }
   get email(){
-    return this.registroForm.get('email');
+    return this.registroForm.get('email')
   }
   get cpf(){
-    return this.registroForm.get('cpf');
+    return this.registroForm.get('cpf')
   }
   get senha(){
-    return this.registroForm.get('senha');
+    return this.registroForm.get('senha')
   }
 
   ngOnInit() {}
